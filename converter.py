@@ -13,11 +13,16 @@ def main():
 
     if sys.argv[2] == "b" and sys.argv[1] == "d":
         result = de_bi_conversion(float(sys.argv[3]))
-        print(result)
+        for i in result:
+            print(i, end="")
     elif sys.argv[2] == "h" and sys.argv[1] == "d":
         h_result = de_hex_conversion(float(sys.argv[3]))
-        print(h_result)
-        
+        for j in h_result:
+            print(j, end="")
+    elif sys.argv[2] == "o" and sys.argv[1] == "d":
+        o_result = de_o_conversion(float(sys.argv[3]))
+        for k in o_result:
+            print(k, end="")
     
 
 def de_bi_conversion(number):
@@ -32,7 +37,7 @@ def de_bi_conversion(number):
             re = 0
 
         number /= 2
-        re = math.floor(number)
+        number = math.floor(number)
         if number < 2 and number > 1:
             number = 1
         elif number < 1:
@@ -66,6 +71,23 @@ def de_hex_conversion(number):
     hex.reverse()
     return hex
 
+def de_o_conversion(number):
+    oc = []
+
+    while number != 0:
+        re = number % 8
+        re = math.floor(re)
+        if re < 0:
+            re = 0
+
+        number /= 8
+        number = math.floor(number)
+        if number < 1:
+            number = 0
+        oc.append(int(re))
+    
+    oc.reverse()
+    return oc
 
 if __name__ == "__main__":
     main()
