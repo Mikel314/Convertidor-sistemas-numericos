@@ -1,26 +1,23 @@
-import sys 
+from email.mime import base
 import math
 
 def main():
 
-    #Checking for the right amount of input
-    if len(sys.argv) != 4:
-        print("Correct use: system from system for number to convert")
-        return 1
+    #Input
+    base_sys = input("From (first 3 letters): ").lower().strip()
+    desired_sys = input("To (first 3 letters): ").lower().strip()
+    numb = input("Number: ")
 
-    sys.argv[2].lower
-    sys.argv[1].lower
-
-    if sys.argv[2] == "b" and sys.argv[1] == "d":
-        result = de_bi_conversion(float(sys.argv[3]))
+    if base_sys == "dec" and desired_sys == "bin":
+        result = de_bi_conversion(float(numb))
         for i in result:
             print(i, end="")
-    elif sys.argv[2] == "h" and sys.argv[1] == "d":
-        h_result = de_hex_conversion(float(sys.argv[3]))
+    elif base_sys == "dec" and desired_sys == "hex":
+        h_result = de_hex_conversion(float(numb))
         for j in h_result:
             print(j, end="")
-    elif sys.argv[2] == "o" and sys.argv[1] == "d":
-        o_result = de_o_conversion(float(sys.argv[3]))
+    elif base_sys == "dec" and desired_sys == "oct":
+        o_result = de_o_conversion(float(numb))
         for k in o_result:
             print(k, end="")
     
