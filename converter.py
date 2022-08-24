@@ -8,6 +8,8 @@ def main():
     desired_sys = input("To (first 3 letters): ").lower().strip()
     numb = float(input("Number: "))
 
+    #Checking for the desired operation
+    #Decimal to binary
     if base_sys == "dec" and desired_sys == "bin":
         int_res, dec_res = de_bi_conversion(numb)
         for i in int_res:
@@ -15,6 +17,7 @@ def main():
         print(".", end="")
         for j in dec_res:
             print(j, end="")
+    #Decimal to hexadecimal
     elif base_sys == "dec" and desired_sys == "hex":
         h_result, h_decresult = de_hex_conversion(numb)
         for k in h_result:
@@ -22,6 +25,7 @@ def main():
         print(".", end="")
         for l in h_decresult:
             print(l, end="")
+    #Decimal to octal
     elif base_sys == "dec" and desired_sys == "oct":
         o_result, o_decresult = de_o_conversion(numb)
         for m in o_result:
@@ -32,10 +36,12 @@ def main():
     
 
 def de_bi_conversion(number):
+    #Declaration of variables
     bi = []
     fracc = round(number % 1, 2)
     fracc_part = []
-
+    
+    #Dividing the number by 2 and adding the reminder to a list
     while number != 0:
         re = number % 2
         re = math.floor(re)
@@ -52,6 +58,7 @@ def de_bi_conversion(number):
             number = 0
         bi.append(int(re))
 
+    #Dealing with the decimal part, multiplying the decimal by 2, with a precision of 4 decimal numbers
     for i in range(4):
         fracc *= 2
         fracc_part.append(int(fracc))
@@ -62,11 +69,13 @@ def de_bi_conversion(number):
 
 
 def de_hex_conversion(number):
+    #Declaration of variables
     hex = []
     hex_range = {10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"}
     hex_frac = round(number % 1, 2)
     hex_fraclist = []
 
+    #Dividing the number by 16 and adding the reminder to a list, also checking for the correct letter to use given de hex_range dict
     while number != 0:
         hex_re = number % 16
         hex_re = math.floor(hex_re)
@@ -83,6 +92,7 @@ def de_hex_conversion(number):
         else:
             hex.append(hex_re)
 
+    #Dealing with the decimal part, multiplying the decimal by 16, with a precision of 4 decimal numbers
     for i in range(4):
         hex_frac *= 16
         if hex_frac > 9:
@@ -96,10 +106,12 @@ def de_hex_conversion(number):
     return hex, hex_fraclist
 
 def de_o_conversion(number):
+    #Declaration of variables
     oc = []
     dec_part = round(number % 1, 2)
     dec_partlist = []
 
+    #Dividing the number by 8 and adding the reminder to a list
     while number != 0:
         re = number % 8
         re = math.floor(re)
@@ -112,6 +124,7 @@ def de_o_conversion(number):
             number = 0
         oc.append(int(re))
     
+    #Dealing with the decimal part, multiplying the decimal by 8, with a precision of 4 decimal numbers
     for i in range(4):
         dec_part /= 8
         dec_partlist.append(int(dec_part))
