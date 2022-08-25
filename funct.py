@@ -1,9 +1,10 @@
 import math
+from unicodedata import decimal
 
-def de_bi_conversion(number):
+def de_bi_conversion(number, decimals):
     #Declaration of variables
     bi = []
-    fracc = round(number % 1, 2)
+    fracc = round(number % 1, decimals)
     fracc_part = []
     
     #Dividing the number by 2 and adding the reminder to a list
@@ -24,20 +25,20 @@ def de_bi_conversion(number):
         bi.append(int(re))
 
     #Dealing with the decimal part, multiplying the decimal by 2, with a precision of 4 decimal numbers
-    for i in range(4):
+    for i in range(decimals):
         fracc *= 2
         fracc_part.append(int(fracc))
-        fracc = round(fracc % 1, 2)
+        fracc = round(fracc % 1, decimals)
     
     bi.reverse()
     return bi, fracc_part
 
 
-def de_hex_conversion(number):
+def de_hex_conversion(number, decimals):
     #Declaration of variables
     hex = []
     hex_range = {10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"}
-    hex_frac = round(number % 1, 2)
+    hex_frac = round(number % 1, decimals)
     hex_fraclist = []
 
     #Dividing the number by 16 and adding the reminder to a list, also checking for the correct letter to use given de hex_range dict
@@ -58,22 +59,23 @@ def de_hex_conversion(number):
             hex.append(hex_re)
 
     #Dealing with the decimal part, multiplying the decimal by 16, with a precision of 4 decimal numbers
-    for i in range(4):
+    for i in range(decimals):
         hex_frac *= 16
-        if hex_frac > 9:
-            hex_frac = hex_range[hex_frac]
-        elif hex_frac < 9:
+        if int(hex_frac) > 9:
+            tmp = hex_range[int(hex_frac)]
+            hex_fraclist.append(tmp)
+        elif int(hex_frac) < 9:
             hex_fraclist.append(int(hex_frac))
-        hex_frac = round(hex_frac % 1, 2)
+        hex_frac = round(hex_frac % 1, decimals)
     
     
     hex.reverse()
     return hex, hex_fraclist
 
-def de_o_conversion(number):
+def de_o_conversion(number, decimals):
     #Declaration of variables
     oc = []
-    dec_part = round(number % 1, 2)
+    dec_part = round(number % 1, decimals)
     dec_partlist = []
 
     #Dividing the number by 8 and adding the reminder to a list
@@ -90,10 +92,19 @@ def de_o_conversion(number):
         oc.append(int(re))
     
     #Dealing with the decimal part, multiplying the decimal by 8, with a precision of 4 decimal numbers
-    for i in range(4):
+    for i in range(decimals):
         dec_part /= 8
         dec_partlist.append(int(dec_part))
-        dec_part = round(dec_part % 1, 2)
+        dec_part = round(dec_part % 1, decimals)
     
     oc.reverse()
     return oc, dec_partlist
+
+
+# def bin_dec_conversion(number):
+#     fracc_part = round(number % 1, 2)
+#     number  = str(number)
+#     decimal_number = []
+
+#     for i in range(len(number)):
+#         decimal_number.append(int(number[i]))
