@@ -100,18 +100,18 @@ def de_o_conversion(number, decimals):
     return oc, dec_partlist
 
 #Not finished
-def bin_dec_conversion(number, decimals):
-    fracc_part = round(number % 1, decimals)
-    number = round(number)
-    decimal_number = []
-    final = []
+# def bin_dec_conversion(number, decimals):
+#     fracc_part = round(number % 1, decimals)
+#     number = round(number)
+#     decimal_number = []
+#     final = []
 
-    number_len = str(number)
-    for i in range(len(number_len)):
-        decimal_number.append(int(number_len[i]))
+#     number_len = str(number)
+#     for i in range(len(number_len)):
+#         decimal_number.append(int(number_len[i]))
     
 
-    return final, decimal_number    
+#     return final, decimal_number    
 
 
 def isBinary(number):

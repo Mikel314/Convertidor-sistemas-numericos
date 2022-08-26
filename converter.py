@@ -41,16 +41,29 @@ def main():
         print(".", end="")
         for n in o_decresult:
             print(n, end="")
+        else:
+            psuedo = input("Press enter to exit or type again for another operation ")
+            if final == "":
+                return 1
+            elif final == "again":
+                main()
 
-    #Any system to decimal
-    if base_sys == "bin" and desired_sys == "dec" and funct.isBinary(numb) == True:
-        result, b_binresult = funct.bin_dec_conversion(numb, precision)
-        for e in result:
-            print(e, end="")
-        print(".", end="")
-        for q in b_binresult:
-            print(b_binresult, end="")
+    # Any system to decimal
+    # if base_sys == "bin" and desired_sys == "dec" and funct.isBinary(numb) == True:
+    #     result, b_binresult = funct.bin_dec_conversion(numb, precision)
+    #     for e in result:
+    #         print(e, end="")
+    #     print(".", end="")
+    #     for q in b_binresult:
+    #         print(q, end="")
     
+    print(" ")
+    final = input("Press enter to exit or type again for another operation ")
+    if final == "":
+        return 1
+    elif final == "again":
+        main()
+
 
 if __name__ == "__main__":
     main()
