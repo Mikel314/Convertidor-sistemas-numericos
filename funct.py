@@ -1,5 +1,4 @@
-import math
-from unicodedata import decimal
+from math import floor
 
 def de_bi_conversion(number, decimals):
     #Declaration of variables
@@ -10,14 +9,14 @@ def de_bi_conversion(number, decimals):
     #Dividing the number by 2 and adding the reminder to a list
     while number != 0:
         re = number % 2
-        re = math.floor(re)
+        re = floor(re)
         if re > 1:
             re = 1
         elif re < 0:
             re = 0
 
         number /= 2
-        number = math.floor(number)
+        number = floor(number)
         if number < 2 and number > 1:
             number = 1
         elif number < 1:
@@ -44,10 +43,10 @@ def de_hex_conversion(number, decimals):
     #Dividing the number by 16 and adding the reminder to a list, also checking for the correct letter to use given de hex_range dict
     while number != 0:
         hex_re = number % 16
-        hex_re = math.floor(hex_re)
+        hex_re = floor(hex_re)
 
         number /= 16
-        number = math.floor(number)
+        number = floor(number)
         if number < 1:
             number = 0
         
@@ -81,12 +80,12 @@ def de_o_conversion(number, decimals):
     #Dividing the number by 8 and adding the reminder to a list
     while number != 0:
         re = number % 8
-        re = math.floor(re)
+        re = floor(re)
         if re < 0:
             re = 0
 
         number /= 8
-        number = math.floor(number)
+        number = floor(number)
         if number < 1:
             number = 0
         oc.append(int(re))
@@ -100,11 +99,24 @@ def de_o_conversion(number, decimals):
     oc.reverse()
     return oc, dec_partlist
 
+#Not finished
+def bin_dec_conversion(number, decimals):
+    fracc_part = round(number % 1, decimals)
+    number = round(number)
+    decimal_number = []
+    final = []
 
-# def bin_dec_conversion(number):
-#     fracc_part = round(number % 1, 2)
-#     number  = str(number)
-#     decimal_number = []
+    number_len = str(number)
+    for i in range(len(number_len)):
+        decimal_number.append(int(number_len[i]))
+    
 
-#     for i in range(len(number)):
-#         decimal_number.append(int(number[i]))
+    return final, decimal_number    
+
+
+def isBinary(number):
+    for i in str(number):
+        if i in ("0","1") == False:
+            return False
+        else:
+            return True
