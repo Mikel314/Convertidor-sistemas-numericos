@@ -42,10 +42,10 @@ def main():
         for n in o_decresult:
             print(n, end="")
         else:
-            psuedo = input("Press enter to exit or type again for another operation ")
-            if final == "":
+            pseudo = input("Press enter to exit or type again for another operation ")
+            if pseudo == "":
                 return 1
-            elif final == "again":
+            elif pseudo == "again":
                 main()
 
     # Any system to decimal

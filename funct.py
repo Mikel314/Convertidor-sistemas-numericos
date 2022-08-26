@@ -23,7 +23,7 @@ def de_bi_conversion(number, decimals):
             number = 0
         bi.append(int(re))
 
-    #Dealing with the decimal part, multiplying the decimal by 2, with a precision of 4 decimal numbers
+    #Dealing with the decimal part, multiplying the decimal by 2, with a precision of 4 decimal numbers by default
     for i in range(decimals):
         fracc *= 2
         fracc_part.append(int(fracc))
@@ -57,7 +57,7 @@ def de_hex_conversion(number, decimals):
         else:
             hex.append(hex_re)
 
-    #Dealing with the decimal part, multiplying the decimal by 16, with a precision of 4 decimal numbers
+    #Dealing with the decimal part, multiplying the decimal by 16, with a precision of 4 decimal numbers by default
     for i in range(decimals):
         hex_frac *= 16
         if int(hex_frac) > 9:
@@ -90,7 +90,7 @@ def de_o_conversion(number, decimals):
             number = 0
         oc.append(int(re))
     
-    #Dealing with the decimal part, multiplying the decimal by 8, with a precision of 4 decimal numbers
+    #Dealing with the decimal part, multiplying the decimal by 8, with a precision of 4 decimal numbers by default
     for i in range(decimals):
         dec_part /= 8
         dec_partlist.append(int(dec_part))
@@ -101,17 +101,17 @@ def de_o_conversion(number, decimals):
 
 #Not finished
 # def bin_dec_conversion(number, decimals):
-#     fracc_part = round(number % 1, decimals)
-#     number = round(number)
-#     decimal_number = []
-#     final = []
+    # fracc_part = round(number % 1, decimals)
+    # number = round(number)
+    # decimal_number = []
+    # final = []
 
-#     number_len = str(number)
-#     for i in range(len(number_len)):
-#         decimal_number.append(int(number_len[i]))
+    # number_len = str(number)
+    # for i in range(len(number_len)):
+    #     decimal_number.append(int(number_len[i]))
     
 
-#     return final, decimal_number    
+    # return final, decimal_number    
 
 
 def isBinary(number):
