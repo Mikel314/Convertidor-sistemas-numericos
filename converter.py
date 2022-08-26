@@ -9,7 +9,7 @@ def main():
         numb = float(input("Number: "))
     except ValueError:
         print("That's not a number")
-        return 1
+        return main()
     
     precision = 4
 
