@@ -102,25 +102,30 @@ def de_o_conversion(number, decimals):
 #Not finished
 def bin_dec_conversion(number, decimals):
     fracc_part = round(number % 1, decimals)
-    decimal_number = []
+    decimal_number = 0
     tmp = []
     final = 0
-    number = str('{:f}'.format(number))
+    number = str(number)
 
     if fracc_part == 0.0:
         number = int(number, 2)
 
     return number, decimal_number    
 
-
+#Self explanatory 
 def isBinary(number):
-    for i in str(number):
-        if i in ("0","1") == False:
-            return False
-        else:
-            return True
+    p = set(str(number))
+ 
+    s = {'0', '1'}
 
+    if s == p or p == {'0'} or p == {'1'}:
+        return True
+    else:
+        return False
+
+#Function to deal with input
 def getInput():
+    #print("Number: ", end="")
     result = input("Number: ")
 
     if "." in result:

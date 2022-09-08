@@ -1,5 +1,5 @@
 import funct
-import getch
+from getch import pause
 
 def main():
 
@@ -12,14 +12,14 @@ def main():
         print("That's not a number")
         return main()
     
-    if funct.isBinary(inp) == False:
+    if funct.isBinary(inp) == False and base_sys == "bin":
         print("That's not a binary!")
         return main()
 
     precision = 4
     try:
         if inp % 1 != 0:
-            precision = int(input("How many decimals places do you want: "))
+            precision = int(input("How many decimals places do you want?: "))
     except TypeError or ValueError:
         print("That's not a correct input!")
         return main()
@@ -49,15 +49,15 @@ def main():
         print(".", end="")
         for n in o_decresult:
             print(n, end="")
-    print("")
 
     #Any system to decimal
     if base_sys == "bin" and desired_sys == "dec" and funct.isBinary(inp) == True:
-        number = format(inp)
-        result = int(number, 2)
-        print(result)
+        number, dec_number = funct.bin_dec_conversion(inp, precision)
+        print(number, end=".")
+        print(dec_number, end="")
     
-    getch.pause("Press any key to continue")
+    print("")
+    pause("Press any key to continue ")
     main()
 
 if __name__ == "__main__":
