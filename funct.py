@@ -103,14 +103,22 @@ def de_o_conversion(number, decimals):
 def bin_dec_conversion(number, decimals):
     fracc_part = round(number % 1, decimals)
     decimal_number = 0
-    tmp = []
-    final = 0
     number = str(number)
 
     if fracc_part == 0.0:
         number = int(number, 2)
 
     return number, decimal_number    
+
+def hex_dec_conversion(number, decimals):
+    fracc_part = round(number % 1, decimals)
+    decimal_number = 0
+    number = str(number)
+
+    if fracc_part == 0.0:
+        number = int(number, 16)
+
+    return number, decimal_number
 
 #Self explanatory 
 def isBinary(number):
@@ -127,9 +135,12 @@ def isBinary(number):
 def getInput():
     #print("Number: ", end="")
     result = input("Number: ")
+    hex_range = ["A","B","C","D","E","F"]
 
     if "." in result:
         result = float(result)
+    elif result in hex_range:
+        result = int(result, 16)
     else:
         try:
             result = int(result)

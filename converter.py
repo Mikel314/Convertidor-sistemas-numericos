@@ -55,10 +55,16 @@ def main():
         number, dec_number = funct.bin_dec_conversion(inp, precision)
         print(number, end=".")
         print(dec_number, end="")
+    if base_sys == "hex" and desired_sys == "dec":
+        de_res, point_res = funct.hex_dec_conversion(inp, precision)
+        print(de_res, end=".")
+        print(point_res, end="") 
     
+
     print("")
     pause("Press any key to continue ")
     main()
+    #main()
 
 if __name__ == "__main__":
     main()
