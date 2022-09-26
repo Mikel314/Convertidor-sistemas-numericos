@@ -7,7 +7,7 @@ def main():
     base_sys = input("From (first 3 letters): ").lower().strip()
     desired_sys = input("To (first 3 letters): ").lower().strip()
     try:
-        inp = funct.getInput()
+        inp = funct.getInput(base_sys)
     except ValueError:
         print("That's not a number")
         return main()
@@ -56,15 +56,13 @@ def main():
         print(number, end=".")
         print(dec_number, end="")
     if base_sys == "hex" and desired_sys == "dec":
-        de_res, point_res = funct.hex_dec_conversion(inp, precision)
-        print(de_res, end=".")
-        print(point_res, end="") 
-    
+        print(inp, end="")
+    if base_sys == "oct" and desired_sys == "dec":
+        print(inp, end="")
 
     print("")
     pause("Press any key to continue ")
     main()
-    #main()
 
 if __name__ == "__main__":
     main()

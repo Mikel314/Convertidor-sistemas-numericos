@@ -99,7 +99,7 @@ def de_o_conversion(number, decimals):
     oc.reverse()
     return oc, dec_partlist
 
-#Not finished
+#Binary to decimal
 def bin_dec_conversion(number, decimals):
     fracc_part = round(number % 1, decimals)
     decimal_number = 0
@@ -132,15 +132,15 @@ def isBinary(number):
         return False
 
 #Function to deal with input
-def getInput():
-    #print("Number: ", end="")
+def getInput(sys):
     result = input("Number: ")
-    hex_range = ["A","B","C","D","E","F"]
 
-    if "." in result:
+    if "." in result and sys == "dec":
         result = float(result)
-    elif result in hex_range:
+    elif sys == "hex":
         result = int(result, 16)
+    elif sys == "oct":
+        result = int(result, 8)
     else:
         try:
             result = int(result)
